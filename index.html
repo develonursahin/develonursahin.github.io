@@ -1,11 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Onur Şahin | Mobile Application Developer</title>
-  <meta name="description" content="Onur Şahin — Mobile Application Developer | Flutter • AI • Firebase • Supabase" />
+  <meta name="description" content="Onur Şahin — Mobile Application Developer | Flutter • Firebase • Supabase • AI" />
   <meta name="theme-color" content="#070A12" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,16 +13,16 @@
   <style>
     :root{
       --bg:#070A12;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.08);
+      --card: rgba(255,255,255,.06);
       --stroke: rgba(255,255,255,.10);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.70);
       --soft: rgba(255,255,255,.55);
-      --brand: #FCBF22;
+      --brand:#FCBF22;
       --brand2:#38BDF8;
-      --shadow: 0 24px 80px rgba(0,0,0,.55);
-      --radius: 20px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --ring: 0 0 0 4px rgba(252,191,34,.14);
     }
 
     *{ box-sizing:border-box; }
@@ -33,14 +32,13 @@
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1200px 800px at 15% 10%, rgba(252,191,34,.16), transparent 55%),
-        radial-gradient(900px 650px at 85% 20%, rgba(56,189,248,.12), transparent 60%),
-        radial-gradient(900px 700px at 50% 100%, rgba(255,255,255,.05), transparent 60%),
+        radial-gradient(1100px 780px at 15% 10%, rgba(252,191,34,.15), transparent 55%),
+        radial-gradient(900px 600px at 85% 18%, rgba(56,189,248,.10), transparent 62%),
+        radial-gradient(900px 700px at 50% 110%, rgba(255,255,255,.05), transparent 60%),
         linear-gradient(180deg, #050710 0%, #070A12 55%, #060813 100%);
       overflow-x:hidden;
     }
 
-    /* subtle grid */
     body::before{
       content:"";
       position: fixed;
@@ -51,40 +49,27 @@
         linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
       background-size: 64px 64px;
       mask-image: radial-gradient(60% 45% at 50% 35%, black 55%, transparent 100%);
-      opacity:.35;
+      opacity:.26;
       z-index:0;
     }
-
-    .blob{
-      position: fixed;
-      width: 520px;
-      height: 520px;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity:.16;
-      z-index:0;
-      pointer-events:none;
-    }
-    .blob.a{ background: var(--brand); left:-140px; top:-160px; }
-    .blob.b{ background: var(--brand2); right:-180px; top:40px; }
-    .blob.c{ background: #A78BFA; left:30%; bottom:-240px; opacity:.11; }
 
     .wrap{
       position: relative;
       z-index:1;
       min-height:100%;
-      padding: 56px 20px;
+      padding: 56px 18px 40px;
       display:flex;
       justify-content:center;
     }
 
     .page{
-      width:min(1120px, 100%);
+      width:min(1040px, 100%);
       display:flex;
       flex-direction:column;
-      gap: 18px;
+      gap: 16px;
     }
 
+    /* HERO */
     .hero{
       border: 1px solid var(--stroke);
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
@@ -95,200 +80,62 @@
 
     .heroTop{
       display:flex;
-      gap: 22px;
-      padding: 26px;
+      gap: 18px;
+      padding: 22px;
       align-items:center;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
     }
 
     .avatar{
-      width: 64px;
-      height: 64px;
-      border-radius: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
       background:
         radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.35), transparent 65%),
-        linear-gradient(135deg, rgba(252,191,34,.95), rgba(56,189,248,.85));
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,.22);
-      position: relative;
+        linear-gradient(135deg, rgba(252,191,34,.95), rgba(56,189,248,.80));
+      border: 1px solid rgba(255,255,255,.20);
+      box-shadow: 0 12px 38px rgba(0,0,0,.38);
       flex: 0 0 auto;
+      position: relative;
     }
     .avatar::after{
       content:"";
       position:absolute;
-      inset: -1px;
-      border-radius: 18px;
-      background: radial-gradient(120px 80px at 30% 10%, rgba(255,255,255,.22), transparent 55%);
+      inset:-1px;
+      border-radius:16px;
+      background: radial-gradient(110px 80px at 30% 10%, rgba(255,255,255,.20), transparent 55%);
       pointer-events:none;
     }
 
     .title{
+      flex:1;
+      min-width:0;
       display:flex;
       flex-direction:column;
       gap: 6px;
-      min-width: 0;
-      flex: 1;
     }
 
     .name{
-      font-size: 1.45rem;
+      margin:0;
+      font-size: 1.5rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin:0;
-      line-height:1.15;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap: wrap;
+      line-height: 1.15;
     }
 
-    .badge{
-      font-size:.78rem;
-      font-weight:600;
-      color: rgba(255,255,255,.85);
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
-    }
-
-    .sub{
+    .role{
       margin:0;
       color: var(--muted);
-      font-weight: 500;
+      font-weight: 600;
       line-height: 1.55;
       max-width: 70ch;
     }
 
-    .linksRow{
+    .chips{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      justify-content:flex-end;
-      align-items:center;
+      gap: 8px;
+      margin-top: 10px;
     }
-
-    .btn{
-      appearance:none;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: .92rem;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      backdrop-filter: blur(10px);
-      white-space:nowrap;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.10);
-      border-color: rgba(255,255,255,.22);
-    }
-    .btn.primary{
-      border-color: rgba(252,191,34,.35);
-      background: linear-gradient(180deg, rgba(252,191,34,.22), rgba(252,191,34,.10));
-    }
-    .btn.primary:hover{
-      border-color: rgba(252,191,34,.55);
-      background: linear-gradient(180deg, rgba(252,191,34,.26), rgba(252,191,34,.12));
-    }
-    .ico{ width: 18px; height: 18px; display:inline-block; }
-
-    .heroMeta{
-      padding: 16px 26px 24px;
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .metaLeft{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      color: var(--soft);
-      font-weight:600;
-      font-size:.9rem;
-    }
-    .metaPill{
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-    }
-
-    .panel{
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 16px;
-      background: rgba(255,255,255,.05);
-      padding: 16px;
-    }
-
-    .panel h2{
-      margin: 0 0 10px;
-      font-size: .95rem;
-      letter-spacing: .02em;
-      color: rgba(255,255,255,.86);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-    }
-
-    .hint{
-      font-size: .8rem;
-      color: var(--soft);
-      font-weight: 600;
-    }
-
-    .list{ display:flex; flex-direction:column; gap: 10px; margin-top: 8px; }
-
-    .item{
-      display:flex;
-      gap: 12px;
-      align-items:flex-start;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-      text-decoration:none;
-      color: inherit;
-    }
-    .item:hover{
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,.18);
-      background: rgba(0,0,0,.26);
-    }
-
-    .dot{
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-top: 4px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 4px rgba(252,191,34,.12);
-      flex: 0 0 auto;
-    }
-
-    .item strong{ display:block; font-size: .95rem; margin: 0 0 2px; }
-    .item span{ display:block; color: var(--muted); font-size: .86rem; line-height: 1.4; }
-
-    .chips{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 10px; }
     .chip{
       font-size: .82rem;
       padding: 8px 10px;
@@ -298,91 +145,270 @@
       color: rgba(255,255,255,.86);
     }
 
-    .stackCols{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .stackBlock{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.16);
-      border-radius: 14px;
-      padding: 12px;
-    }
-    .stackBlock h3{
-      margin: 0 0 8px;
-      font-size: .9rem;
-      color: rgba(255,255,255,.86);
+    .heroBottom{
+      padding: 0 22px 20px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:10px;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
     }
-    .stackBlock p{
-      margin: 0;
+
+    .meta{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+      color: var(--soft);
+      font-weight: 600;
+      font-size: .92rem;
+    }
+    .pill{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: rgba(255,255,255,.78);
+    }
+
+    .links{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+    }
+
+    /* links not blue */
+    a{ color: inherit; text-decoration:none; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-weight: 700;
+      font-size: .92rem;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.20);
+    }
+    .btn.primary{
+      border-color: rgba(252,191,34,.35);
+      background: linear-gradient(180deg, rgba(252,191,34,.22), rgba(252,191,34,.10));
+    }
+    .btn.primary:hover{ border-color: rgba(252,191,34,.55); }
+    .ico{ width: 18px; height: 18px; display:inline-block; }
+
+    /* SECTIONS */
+    .section{
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      overflow:hidden;
+    }
+
+    .sectionHead{
+      padding: 16px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size: 1rem;
+      letter-spacing: .02em;
+    }
+    .sectionHead .hint{
+      color: var(--soft);
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    .cards{
+      padding: 14px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .card{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      border-radius: 14px;
+      padding: 12px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .card.clickable{ cursor:pointer; display:block; }
+    .card:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(0,0,0,.24);
+    }
+    .card:focus-within{ box-shadow: var(--ring); }
+
+    .row{
+      display:flex;
+      align-items:flex-start;
+      gap: 12px;
+    }
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 6px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(252,191,34,.12);
+      flex: 0 0 auto;
+    }
+
+    .cardTitle{
+      margin:0;
+      font-weight: 750;
+      font-size: .98rem;
+      line-height: 1.35;
+    }
+    .cardMeta{
+      margin: 4px 0 0;
       color: var(--muted);
-      font-size: .86rem;
-      line-height: 1.5;
+      font-size: .87rem;
+      line-height: 1.45;
+    }
+
+    .miniLine{
+      margin-top: 8px;
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag{
+      font-size: .78rem;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.84);
+    }
+
+    /* Company blocks: balanced spacing */
+    .companies{
+      display:grid;
+      gap: 12px;          /* balanced gap between companies */
+    }
+    .company{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.14);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .companyHead{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 10px;
+    }
+    .companyName{
+      margin:0;
+      font-size: .98rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .companyLink{
+      font-size: .84rem;
+      color: rgba(255,255,255,.76);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space:nowrap;
+      transition: background .12s ease, border-color .12s ease, transform .12s ease;
+    }
+    .companyLink:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-1px);
+    }
+
+    .companyItems{
+      display:grid;
+      gap: 10px;
     }
 
     .footer{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 12px;
-      padding: 14px 18px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      color: var(--soft);
-      font-size: .85rem;
+      gap: 10px;
+      padding: 14px 16px;
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      color: var(--soft);
+      font-size: .86rem;
     }
 
-    .mono{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: .92em;
-      color: rgba(255,255,255,.78);
-    }
-
-    @media (max-width: 980px){
-      .grid{ grid-template-columns: 1fr; }
-      .linksRow{ width:100%; justify-content:flex-start; }
+    @media (min-width: 920px){
+      .cards.two{ grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 560px){
       .heroTop{ flex-wrap:wrap; }
-      .avatar{ width: 58px; height: 58px; }
+      .name{ font-size: 1.35rem; }
+      .companyHead{ flex-direction:column; align-items:flex-start; }
     }
   </style>
 </head>
 
 <body>
-  <div class="blob a"></div>
-  <div class="blob b"></div>
-  <div class="blob c"></div>
-
   <main class="wrap">
     <div class="page">
 
       <!-- HERO -->
-      <section class="hero" aria-label="Onur Şahin geliştirici sayfası">
-        <header class="heroTop">
+      <section class="hero">
+        <div class="heroTop">
           <div class="avatar" aria-hidden="true"></div>
 
           <div class="title">
-            <h1 class="name">
-              Onur Şahin
-              <span class="badge">Mobile Application Developer</span>
-              <span class="badge">Flutter • AI • IoT</span>
-            </h1>
-            <p class="sub">
-              Enterprise-grade Flutter uygulamaları geliştiriyorum.
-              Mimari (BLoC/Riverpod/MVVM), performans optimizasyonu, Firebase & Supabase ve AI entegrasyonları odak alanlarım.
-            </p>
+            <h1 class="name">Onur Şahin</h1>
+            <p class="role">Mobile Application Developer • Flutter • Firebase • Supabase • AI</p>
+            <div class="chips">
+              <span class="chip">BLoC</span>
+              <span class="chip">Riverpod</span>
+              <span class="chip">MVVM</span>
+              <span class="chip">SignalR</span>
+              <span class="chip">Performance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroBottom">
+          <div class="meta">
+            <span class="pill">📍 Istanbul, Turkey</span>
+            <span class="pill">📧 <a class="mono" href="mailto:develonur@gmail.com">develonur@gmail.com</a></span>
           </div>
 
-          <div class="linksRow">
+          <div class="links">
             <a class="btn primary" href="https://www.linkedin.com/in/develonursahin" target="_blank" rel="noopener">
               <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M6.5 9H4v11h2.5V9zM5.25 5.5A1.5 1.5 0 105.25 8a1.5 1.5 0 000-2.5zM20 20h-2.5v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.37 1.6-2.37 3.27V20H10.6V9h2.4v1.5h.03c.33-.63 1.15-1.3 2.37-1.3 2.54 0 3 1.67 3 3.84V20z" fill="currentColor"/>
@@ -403,462 +429,372 @@
               </svg>
               Linktree
             </a>
-          </div>
-        </header>
 
-        <div class="heroMeta">
-          <div class="metaLeft">
-            <span class="metaPill">📍 Istanbul, Turkey</span>
-            <span class="metaPill">📧 <a href="mailto:develonur@gmail.com">develonur@gmail.com</a></span>
-          </div>
-          <div class="metaLeft">
-            <span class="metaPill mono">Flutter • Firebase • Supabase • AI</span>
+            <a class="btn" href="https://youdica.com/you/develonur" target="_blank" rel="noopener">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M4 20c1.6-3.6 5-6 8-6s6.4 2.4 8 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              Youdica
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- GRID -->
-      <section class="grid">
-
-        <!-- LEFT: EXPERIENCE + PROJECTS -->
-        <div class="panel">
-          <h2>
-            Professional Experience
-            <span class="hint">roles</span>
-          </h2>
-
-          <div class="list">
-            <div class="item" style="cursor:default">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Information Systems Engineer — <a href="https://www.metro.istanbul/" target="_blank" rel="noopener">Metro Istanbul</a></strong>
-                <span>12.2024 – Present • Istanbul</span>
-              </div>
-            </div>
-
-            <div class="item" style="cursor:default">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Flutter Developer — <a href="https://resibu.com/" target="_blank" rel="noopener">Resibu</a></strong>
-                <span>06.2024 – 06.2025 • Remote</span>
-              </div>
-            </div>
-
-            <div class="item" style="cursor:default">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Flutter Developer — <a href="https://www.wookweb.com/" target="_blank" rel="noopener">Wookweb</a></strong>
-                <span>01.2024 – 06.2024 • Istanbul</span>
-              </div>
-            </div>
-
-            <div class="item" style="cursor:default">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Flutter Developer Intern — <a href="https://www.herogamestudio.com/" target="_blank" rel="noopener">Hero Games</a></strong>
-                <span>10.2023 – 12.2023 • Remote</span>
-              </div>
-            </div>
-
-            <div class="item" style="cursor:default">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Flutter Developer Intern — <a href="https://neonapps.co/" target="_blank" rel="noopener">Neon Apps</a></strong>
-                <span>06.2023 – 10.2023 • Istanbul</span>
-              </div>
-            </div>
-          </div>
-
-          <div style="height:14px"></div>
-
-          <h2>
-            Projects
-            <span class="hint">grouped by company</span>
-          </h2>
-
-          <!-- METRO ISTANBUL -->
-          <div class="stackBlock">
-            <h3>
-              Metro Istanbul
-              <span class="hint"><a href="https://www.metro.istanbul/" target="_blank" rel="noopener">metro.istanbul</a></span>
-            </h3>
-            <div class="list">
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>METUS</strong>
-                  <span>Metro equipment tracking & alert notifications • real-time data</span>
-                </div>
-              </div>
-
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>PDKS Mobile & Tablet Apps</strong>
-                  <span>Attendance apps • SignalR + GetX + MVVM • fake GPS detection • face recognition</span>
-                </div>
-              </div>
-
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Metro App Store</strong>
-                  <span>Internal corporate app management • version tracking • update / download management</span>
-                </div>
-              </div>
-
-              <a class="item" href="https://dijitalkart.metro.istanbul/" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Metro Digital Card</strong>
-                  <span>NFC & QR verification • Web + Mobile • secure employee identification</span>
-                </div>
-              </a>
-
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>SAP Fiori WebView App + PDKS Monitoring Dashboard</strong>
-                  <span>SAP Fiori integrated WebView mobile app + web-based monitoring dashboard</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- RESIBU / WOOKWEB -->
-          <div class="stackBlock">
-            <h3>
-              Resibu / Wookweb
-              <span class="hint"><a href="https://resibu.com/" target="_blank" rel="noopener">resibu.com</a></span>
-            </h3>
-            <div class="list">
-              <a class="item" href="https://apps.apple.com/tr/app/resibu/id6480116190?l=tr" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Resibu Mobile App</strong>
-                  <span>Real estate & construction • Riverpod + MVVM + Hive • Firebase (Auth/Crashlytics/FCM) • In-App Purchase</span>
-                </div>
-              </a>
-
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>KiralamaTalebi</strong>
-                  <span>Resibu ecosystem app • end-to-end Flutter development • Firebase + IAP</span>
-                </div>
-              </div>
-
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Dökümhane</strong>
-                  <span>Gold order tracking mobile app • Flutter/Dart • production release</span>
-                </div>
-              </div>
-
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Heva Clinic</strong>
-                  <span>Hair clinic patient guide app • Flutter/Dart • production release</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- NETBIOCA -->
-          <div class="stackBlock">
-            <h3>
-              Netbioca
-              <span class="hint">Project</span>
-            </h3>
-            <div class="list">
-              <a class="item" href="https://play.google.com/store/apps/details?id=com.netbioca.inoica.app" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Youdica</strong>
-                  <span>Digital business card app with NFC • MVVM + Riverpod • Firebase • REST API • Deeplink</span>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- PERSONAL -->
-          <div class="stackBlock">
-            <h3>
-              Personal Projects
-              <span class="hint">builds</span>
-            </h3>
-            <div class="list">
-              <a class="item" href="https://play.google.com/store/apps/details?id=com.develonur.sazsoz" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Saz Söz</strong>
-                  <span>Türkü arşivi • offline erişim • hızlı arama • favoriler • optimized UI • Firebase + Supabase</span>
-                </div>
-              </a>
-
-              <a class="item" href="https://play.google.com/store/apps/details?id=com.lightsup.speedread.app" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>SpeedRead+</strong>
-                  <span>RSVP speed reading • PDF/Word reading • OCR scan • AI text generation • BLoC + Firebase</span>
-                </div>
-              </a>
-
-              <a class="item" href="https://github.com/develonursahin/flutter_stable_diffusion" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Flutter Stable Diffusion App</strong>
-                  <span>Stable Diffusion local server integration • text/image processing • BLoC + Dio</span>
-                </div>
-              </a>
-
-              <a class="item" href="https://github.com/develonursahin/chat_gpt" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Chat GPT App</strong>
-                  <span>ChatGPT API integration • Provider state management • premium membership flow</span>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- HERO GAMES -->
-          <div class="stackBlock">
-            <h3>
-              Hero Games
-              <span class="hint"><a href="https://www.herogamestudio.com/" target="_blank" rel="noopener">herogamestudio.com</a></span>
-            </h3>
-            <div class="list">
-              <a class="item" href="https://play.google.com/store/apps/details?id=com.reeder.avatar&hl=tr&gl=US" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Avatar</strong>
-                  <span>Photo editing • rotate/zoom/crop • text/frames • color/orientation • background edits • gallery save</span>
-                </div>
-              </a>
-
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>FaceMe • Dream AI • No Shame</strong>
-                  <span>AI-powered apps • Flutter/Dart • GetX • API integrations • testing & UI improvements</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- NEON APPS -->
-          <div class="stackBlock">
-            <h3>
-              Neon Apps
-              <span class="hint"><a href="https://neonapps.co/" target="_blank" rel="noopener">neonapps.co</a></span>
-            </h3>
-            <div class="list">
-              <a class="item" href="https://apps.apple.com/tr/app/blushy-app/id6470207871?l=tr" target="_blank" rel="noopener">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Blushy</strong>
-                  <span>Instagram influencer analysis • product recommendations • API integration • MobX</span>
-                </div>
-              </a>
-
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Chat GPT App (Internship)</strong>
-                  <span>Chatbot app during internship • Flutter/Dart • state management & feature development</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- HACKATHON -->
-          <div class="stackBlock">
-            <h3>
-              Hackathon
-              <span class="hint"><a href="https://www.figma.com/deck/3NPExzamisTXgj0Y7oj65S/AI-Dream-to-Video---English?node-id=1-453&t=mCLYVtPnZIn5HDEG-1" target="_blank" rel="noopener">Figma deck</a></span>
-            </h3>
-            <div class="list">
-              <div class="item" style="cursor:default">
-                <div class="dot" aria-hidden="true"></div>
-                <div>
-                  <strong>Dream AI — Adapty & Fal AI Hackathon</strong>
-                  <span>BLoC • Adapty subscriptions • FAL AI image generation & manipulation</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <!-- EXPERIENCE -->
+      <section class="section">
+        <div class="sectionHead">
+          <h2>Professional Experience</h2>
+          <div class="hint">2023 → present</div>
         </div>
 
-        <!-- RIGHT: SKILLS + EDUCATION + REFERENCES -->
-        <aside class="panel">
-          <h2>
-            Core Skills
-            <span class="hint">focus</span>
-          </h2>
-
-          <div class="chips" aria-label="Skills">
-            <span class="chip">Flutter</span>
-            <span class="chip">Dart</span>
-            <span class="chip">BLoC</span>
-            <span class="chip">Riverpod</span>
-            <span class="chip">GetX</span>
-            <span class="chip">MVVM</span>
-            <span class="chip">GetIt</span>
-            <span class="chip">Hive</span>
-            <span class="chip">SQLite</span>
-            <span class="chip">Freezed</span>
-            <span class="chip">Dio</span>
-            <span class="chip">REST API</span>
-            <span class="chip">WebSocket / SignalR</span>
-            <span class="chip">Performance Optimization</span>
-          </div>
-
-          <div style="height:14px"></div>
-
-          <h2>
-            Firebase
-            <span class="hint">suite</span>
-          </h2>
-          <div class="chips">
-            <span class="chip">Auth</span>
-            <span class="chip">Firestore</span>
-            <span class="chip">Realtime DB</span>
-            <span class="chip">Storage</span>
-            <span class="chip">FCM</span>
-            <span class="chip">Crashlytics</span>
-            <span class="chip">Analytics</span>
-            <span class="chip">Remote Config</span>
-          </div>
-
-          <div style="height:14px"></div>
-
-          <h2>
-            Tools
-            <span class="hint">workflow</span>
-          </h2>
-          <div class="chips">
-            <span class="chip">Git</span>
-            <span class="chip">Fastlane (CI/CD)</span>
-            <span class="chip">Sentry</span>
-            <span class="chip">Postman</span>
-            <span class="chip">Docker</span>
-            <span class="chip">Figma</span>
-            <span class="chip">OneSignal</span>
-            <span class="chip">AdMob</span>
-          </div>
-
-          <div style="height:14px"></div>
-
-          <h2>
-            AI
-            <span class="hint">hands-on</span>
-          </h2>
-          <div class="chips">
-            <span class="chip">Stable Diffusion</span>
-            <span class="chip">Model Fine-Tuning</span>
-            <span class="chip">LoRA Training</span>
-          </div>
-
-          <div style="height:14px"></div>
-
-          <h2>
-            Supabase
-            <span class="hint">backend</span>
-          </h2>
-          <div class="chips">
-            <span class="chip">Edge Functions</span>
-            <span class="chip">PostgreSQL</span>
-          </div>
-
-          <div style="height:14px"></div>
-
-          <h2>
-            Education
-            <span class="hint">degree</span>
-          </h2>
-          <div class="list">
-            <a class="item" href="https://www.beykent.edu.tr/en" target="_blank" rel="noopener">
-              <div class="dot" aria-hidden="true"></div>
+        <div class="cards two">
+          <div class="card">
+            <div class="row">
+              <div class="dot"></div>
               <div>
-                <strong>Computer Engineering — Beykent University</strong>
-                <span>2018 – 2023 • Bachelor Degree</span>
+                <p class="cardTitle">Information Systems Engineer — Metro Istanbul</p>
+                <p class="cardMeta">12.2024 – Present • Istanbul</p>
               </div>
-            </a>
+            </div>
+            <div class="miniLine">
+              <span class="tag">Enterprise</span><span class="tag">Flutter</span><span class="tag">Dashboards</span><span class="tag">Integrations</span>
+            </div>
           </div>
 
-          <div style="height:14px"></div>
-
-          <h2>
-            References
-            <span class="hint">contacts</span>
-          </h2>
-
-          <div class="list">
-            <div class="item" style="cursor:default">
-              <div class="dot" aria-hidden="true"></div>
+          <div class="card">
+            <div class="row">
+              <div class="dot"></div>
               <div>
-                <strong>Mehmet Sefa Barlak</strong>
-                <span>Software and Database Unit Manager — Metro Istanbul</span>
+                <p class="cardTitle">Flutter Developer — Resibu</p>
+                <p class="cardMeta">06.2024 – 06.2025 • Remote</p>
+              </div>
+            </div>
+            <div class="miniLine">
+              <span class="tag">MVVM</span><span class="tag">Riverpod</span><span class="tag">Firebase</span><span class="tag">IAP</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div class="dot"></div>
+              <div>
+                <p class="cardTitle">Flutter Developer — Wookweb</p>
+                <p class="cardMeta">01.2024 – 06.2024 • Istanbul</p>
+              </div>
+            </div>
+            <div class="miniLine">
+              <span class="tag">Production</span><span class="tag">Publishing</span><span class="tag">Flutter</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div class="dot"></div>
+              <div>
+                <p class="cardTitle">Flutter Developer Intern — Hero Games</p>
+                <p class="cardMeta">10.2023 – 12.2023 • Remote</p>
+              </div>
+            </div>
+            <div class="miniLine">
+              <span class="tag">AI Apps</span><span class="tag">GetX</span><span class="tag">APIs</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <div class="dot"></div>
+              <div>
+                <p class="cardTitle">Flutter Developer Intern — Neon Apps</p>
+                <p class="cardMeta">06.2023 – 10.2023 • Istanbul</p>
+              </div>
+            </div>
+            <div class="miniLine">
+              <span class="tag">MobX</span><span class="tag">App Dev</span><span class="tag">Testing</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section">
+        <div class="sectionHead">
+          <h2>Projects</h2>
+          <div class="hint">company grouped</div>
+        </div>
+
+        <div class="cards">
+          <div class="companies">
+
+            <!-- METRO -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Metro Istanbul</p>
+                <a class="companyLink" href="https://www.metro.istanbul/" target="_blank" rel="noopener">metro.istanbul</a>
+              </div>
+
+              <div class="companyItems">
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">METUS</p>
+                    <p class="cardMeta">Equipment tracking & alert notifications • real-time data</p>
+                  </div></div>
+                </div>
+
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">PDKS Mobile & Tablet Apps</p>
+                    <p class="cardMeta">SignalR • MVVM • fake GPS detection • face recognition</p>
+                  </div></div>
+                </div>
+
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Metro App Store</p>
+                    <p class="cardMeta">Internal app management • version tracking • update/download</p>
+                  </div></div>
+                </div>
+
+                <a class="card clickable" href="https://dijitalkart.metro.istanbul/" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Metro Digital Card</p>
+                    <p class="cardMeta">NFC & QR verification • Web + Mobile</p>
+                  </div></div>
+                </a>
+
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">SAP Fiori WebView App & PDKS Monitoring Dashboard</p>
+                    <p class="cardMeta">SAP Fiori integration • mobile WebView • web monitoring dashboard</p>
+                  </div></div>
+                </div>
               </div>
             </div>
 
-            <a class="item" href="https://www.linkedin.com/in/kenankurt" target="_blank" rel="noopener">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Kenan Kurt</strong>
-                <span>Flutter & Backend Developer — Hero Games • LinkedIn</span>
+            <!-- RESIBU -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Resibu</p>
+                <a class="companyLink" href="https://resibu.com/" target="_blank" rel="noopener">resibu.com</a>
               </div>
-            </a>
 
-            <a class="item" href="https://www.linkedin.com/in/mehmetnf/" target="_blank" rel="noopener">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Mehmet Nuri Fırat</strong>
-                <span>Flutter Developer — Neon Apps • LinkedIn</span>
-              </div>
-            </a>
+              <div class="companyItems">
+                <a class="card clickable" href="https://apps.apple.com/tr/app/resibu/id6480116190?l=tr" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Resibu Mobile App</p>
+                    <p class="cardMeta">MVVM • Riverpod • Hive • Firebase • In-App Purchase</p>
+                  </div></div>
+                </a>
 
-            <a class="item" href="https://www.linkedin.com/in/hasancangunes" target="_blank" rel="noopener">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Hasan Can Güneş</strong>
-                <span>Project Manager — Wookweb • LinkedIn</span>
-              </div>
-            </a>
-
-            <div class="item" style="cursor:default">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Doğukan Özgür Yılmaz</strong>
-                <span>Flutter Developer, Team Lead — Neon Apps</span>
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">KiralamaTalebi</p>
+                    <p class="cardMeta">Resibu ecosystem app • end-to-end Flutter development</p>
+                  </div></div>
+                </div>
               </div>
             </div>
 
-            <div class="item" style="cursor:default">
-              <div class="dot" aria-hidden="true"></div>
-              <div>
-                <strong>Çağatay Ayyıldız</strong>
-                <span>Fullstack Developer — Resibu, Netbioca</span>
+            <!-- WOOKWEB -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Wookweb</p>
+                <a class="companyLink" href="https://www.wookweb.com/" target="_blank" rel="noopener">wookweb.com</a>
               </div>
+
+              <div class="companyItems">
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Dökümhane</p>
+                    <p class="cardMeta">Gold order tracking • Flutter/Dart • production release</p>
+                  </div></div>
+                </div>
+
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Heva Clinic</p>
+                    <p class="cardMeta">Hair clinic patient guide • Flutter/Dart • production release</p>
+                  </div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NETBIOCA -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Netbioca</p>
+                <span class="companyLink" style="cursor:default; opacity:.9;">project</span>
+              </div>
+
+              <div class="companyItems">
+                <a class="card clickable" href="https://play.google.com/store/apps/details?id=com.netbioca.inoica.app" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Youdica</p>
+                    <p class="cardMeta">Digital business card with NFC • MVVM • Riverpod • Firebase • Deeplink</p>
+                  </div></div>
+                </a>
+              </div>
+            </div>
+
+            <!-- AOD STUDIO -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">AOD Studio</p>
+                <span class="companyLink" style="cursor:default; opacity:.9;">AI / creative</span>
+              </div>
+
+              <div class="companyItems">
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Dream AI</p>
+                    <p class="cardMeta">BLoC • Adapty subscriptions • FAL AI image generation</p>
+                    <div class="miniLine">
+                      <a class="tag" href="https://www.figma.com/deck/3NPExzamisTXgj0Y7oj65S/AI-Dream-to-Video---English?node-id=1-453&t=mCLYVtPnZIn5HDEG-1" target="_blank" rel="noopener">Figma Deck</a>
+                    </div>
+                  </div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HERO GAMES -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Hero Games</p>
+                <a class="companyLink" href="https://www.herogamestudio.com/" target="_blank" rel="noopener">herogamestudio.com</a>
+              </div>
+
+              <div class="companyItems">
+                <a class="card clickable" href="https://play.google.com/store/apps/details?id=com.reeder.avatar&hl=tr&gl=US" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Avatar</p>
+                    <p class="cardMeta">Photo editing • frames • background edits • export</p>
+                  </div></div>
+                </a>
+
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">FaceMe • No Shame</p>
+                    <p class="cardMeta">AI-powered apps • Flutter/Dart • GetX • API integrations</p>
+                  </div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NEON APPS -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Neon Apps</p>
+                <a class="companyLink" href="https://neonapps.co/" target="_blank" rel="noopener">neonapps.co</a>
+              </div>
+
+              <div class="companyItems">
+                <a class="card clickable" href="https://apps.apple.com/tr/app/blushy-app/id6470207871?l=tr" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Blushy</p>
+                    <p class="cardMeta">Influencer analysis • recommendations • API integration • MobX</p>
+                  </div></div>
+                </a>
+
+                <div class="card">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Chat GPT App (Internship)</p>
+                    <p class="cardMeta">Chatbot app • Flutter/Dart • feature delivery</p>
+                  </div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PERSONAL -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Personal Projects</p>
+                <span class="companyLink" style="cursor:default; opacity:.9;">apps & OSS</span>
+              </div>
+
+              <div class="companyItems">
+                <a class="card clickable" href="https://sazsoz.app" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Saz Söz</p>
+                    <p class="cardMeta">Website • <span class="mono">sazsoz.app</span></p>
+                    <div class="miniLine">
+                      <span class="tag">Google Play: available</span>
+                    </div>
+                  </div></div>
+                </a>
+
+                <a class="card clickable" href="https://play.google.com/store/apps/details?id=com.develonur.sazsoz" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Saz Söz (Google Play)</p>
+                    <p class="cardMeta">Offline • fast search • favorites • Firebase + Supabase</p>
+                  </div></div>
+                </a>
+
+                <a class="card clickable" href="https://play.google.com/store/apps/details?id=com.lightsup.speedread.app" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">SpeedRead+</p>
+                    <p class="cardMeta">RSVP speed reading • OCR scan • AI text generation • BLoC</p>
+                  </div></div>
+                </a>
+
+                <a class="card clickable" href="https://github.com/develonursahin/flutter_stable_diffusion" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Flutter Stable Diffusion App</p>
+                    <p class="cardMeta">Local Stable Diffusion server • BLoC • Dio</p>
+                  </div></div>
+                </a>
+
+                <a class="card clickable" href="https://github.com/develonursahin/chat_gpt" target="_blank" rel="noopener">
+                  <div class="row"><div class="dot"></div><div>
+                    <p class="cardTitle">Chat GPT App</p>
+                    <p class="cardMeta">ChatGPT API • Provider • premium flow</p>
+                  </div></div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section">
+        <div class="sectionHead">
+          <h2>Skills</h2>
+          <div class="hint">toolbox</div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="miniLine">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">BLoC</span>
+              <span class="tag">Riverpod</span>
+              <span class="tag">MVVM</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">REST</span>
+              <span class="tag">SignalR</span>
+              <span class="tag">Fastlane</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Stable Diffusion</span>
             </div>
           </div>
-        </aside>
+        </div>
       </section>
 
       <footer class="footer">
         <span>© <span id="y"></span> Onur Şahin</span>
-        <span class="mono">develonur@gmail.com</span>
+        <span class="mono"><a href="mailto:develonur@gmail.com">develonur@gmail.com</a></span>
       </footer>
+
     </div>
   </main>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Clicking a card opens its href (if the card itself is an <a>) — no blue links anyway.
+    // Extra: make inner tags open new tabs without affecting card click (already handled by being links).
   </script>
 </body>
 </html>
-```
