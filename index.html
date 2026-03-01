@@ -2,51 +2,450 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Develonur Şahin | Geliştirici Sayfası</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Develonur Şahin | Flutter • AI • IoT</title>
+  <meta name="description" content="Develonur Şahin — Flutter Developer • AI & IoT meraklısı. Projeler, bağlantılar ve iletişim." />
+  <meta name="theme-color" content="#0B0F1A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(to right, #2c3e50, #3498db);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+    :root{
+      --bg:#070A12;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --soft: rgba(255,255,255,.55);
+      --brand: #FCBF22;          /* istersen değiştir */
+      --brand2:#38BDF8;          /* hafif cyan vurgu */
+      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --radius: 20px;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 15% 10%, rgba(252,191,34,.18), transparent 55%),
+                  radial-gradient(900px 650px at 85% 20%, rgba(56,189,248,.14), transparent 60%),
+                  radial-gradient(900px 700px at 50% 100%, rgba(255,255,255,.05), transparent 60%),
+                  linear-gradient(180deg, #050710 0%, #070A12 55%, #060813 100%);
+      overflow-x:hidden;
     }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
+    /* subtle grid */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      pointer-events:none;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(60% 45% at 50% 35%, black 55%, transparent 100%);
+      opacity:.35;
+      z-index:0;
     }
 
-    a {
-      color: #ecf0f1;
-      text-decoration: underline;
-      margin-top: 1rem;
-      display: inline-block;
+    /* ambient blobs */
+    .blob{
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity:.18;
+      z-index:0;
+      pointer-events:none;
+    }
+    .blob.a{ background: var(--brand); left:-140px; top:-160px; }
+    .blob.b{ background: var(--brand2); right:-180px; top:40px; }
+    .blob.c{ background: #A78BFA; left:30%; bottom:-240px; opacity:.12; }
+
+    .wrap{
+      position: relative;
+      z-index:1;
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 48px 20px;
     }
 
-    .tag {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      opacity: 0.7;
+    .card{
+      width:min(980px, 100%);
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .top{
+      display:flex;
+      gap: 28px;
+      padding: 26px 26px 20px;
+      align-items:center;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
+    }
+
+    .avatar{
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.35), transparent 65%),
+        linear-gradient(135deg, rgba(252,191,34,.95), rgba(56,189,248,.85));
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.22);
+      position: relative;
+      flex: 0 0 auto;
+    }
+    .avatar::after{
+      content:"";
+      position:absolute;
+      inset: -1px;
+      border-radius: 18px;
+      background: radial-gradient(120px 80px at 30% 10%, rgba(255,255,255,.22), transparent 55%);
+      pointer-events:none;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .name{
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin:0;
+      line-height:1.2;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap: wrap;
+    }
+
+    .badge{
+      font-size:.78rem;
+      font-weight:600;
+      color: rgba(255,255,255,.85);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.45;
+      max-width: 62ch;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    .btn{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: .92rem;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      backdrop-filter: blur(10px);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.22);
+    }
+
+    .btn.primary{
+      border-color: rgba(252,191,34,.35);
+      background: linear-gradient(180deg, rgba(252,191,34,.22), rgba(252,191,34,.10));
+    }
+    .btn.primary:hover{
+      border-color: rgba(252,191,34,.55);
+      background: linear-gradient(180deg, rgba(252,191,34,.26), rgba(252,191,34,.12));
+    }
+
+    .ico{
+      width: 18px;
+      height: 18px;
+      display:inline-block;
+    }
+
+    .content{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      padding: 22px 26px 26px;
+    }
+
+    .panel{
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      padding: 16px;
+    }
+
+    .panel h2{
+      margin: 0 0 10px;
+      font-size: .95rem;
+      letter-spacing: .02em;
+      color: rgba(255,255,255,.86);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+
+    .hint{
+      font-size: .8rem;
+      color: var(--soft);
+      font-weight: 500;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .chip{
+      font-size: .82rem;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.86);
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .item{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      text-decoration:none;
+      color: inherit;
+    }
+    .item:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(0,0,0,.26);
+    }
+
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 4px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(252,191,34,.12);
+      flex: 0 0 auto;
+    }
+
+    .item strong{
+      display:block;
+      font-size: .95rem;
+      margin: 0 0 2px;
+    }
+    .item span{
+      display:block;
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.4;
+    }
+
+    .footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      color: var(--soft);
+      font-size: .85rem;
+    }
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .85em;
+      color: rgba(255,255,255,.80);
+    }
+
+    @media (max-width: 860px){
+      .top{ flex-wrap:wrap; }
+      .ctaRow{ width:100%; justify-content:flex-start; }
+      .content{ grid-template-columns: 1fr; }
+      .avatar{ width: 58px; height: 58px; }
     }
   </style>
 </head>
+
 <body>
-  <h1>develonur</h1>
-  <p>Merhaba! Bu sayfa, Google AdMob <code>app-ads.txt</code> doğrulaması için yapılandırılmıştır.</p>
-  <a href="app-ads.txt">📄 app-ads.txt dosyasını görüntüle</a>
-  <div class="tag">© 2025 • Flutter | AI | IoT</div>
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+  <div class="blob c"></div>
+
+  <main class="wrap">
+    <section class="card" aria-label="Develonur Şahin geliştirici sayfası">
+      <header class="top">
+        <div class="avatar" aria-hidden="true"></div>
+
+        <div class="title">
+          <h1 class="name">
+            Develonur Şahin
+            <span class="badge">Flutter Developer</span>
+            <span class="badge">AI • IoT</span>
+          </h1>
+          <p class="sub">
+            Modern mobil uygulamalar, yapay zeka entegrasyonları ve IoT odaklı ürünler geliştiriyorum.
+            Minimal, hızlı ve “premium” arayüzler seviyorum.
+          </p>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            Projelerim
+          </a>
+          <a class="btn" href="mailto:hello@develonur.com">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="1.8" />
+              <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            İletişim
+          </a>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="panel">
+          <h2>
+            Öne çıkanlar
+            <span class="hint">Kısa yollar</span>
+          </h2>
+
+          <div class="list">
+            <a class="item" href="https://sazsoz.app" target="_blank" rel="noopener">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>Saz Söz</strong>
+                <span>Türkü sözleri • notalar • repertuvar • okuma modu • akort • keşfet</span>
+              </div>
+            </a>
+
+            <a class="item" href="#" target="_blank" rel="noopener">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>GitHub</strong>
+                <span>Açık kaynak işler, örnek projeler ve denemeler</span>
+              </div>
+            </a>
+
+            <a class="item" href="#" target="_blank" rel="noopener">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>LinkedIn</strong>
+                <span>Deneyimler, yayınlar ve iletişim</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <aside class="panel">
+          <h2>
+            Teknolojiler
+            <span class="hint">stack</span>
+          </h2>
+
+          <div class="chips" aria-label="Teknoloji etiketleri">
+            <span class="chip">Flutter</span>
+            <span class="chip">Dart</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">Python</span>
+            <span class="chip">AI Integrations</span>
+            <span class="chip">IoT</span>
+            <span class="chip">CI/CD</span>
+          </div>
+
+          <div style="height:14px"></div>
+
+          <h2>
+            Durum
+            <span class="hint">now</span>
+          </h2>
+          <div class="list">
+            <div class="item" style="cursor:default">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>Yeni projelere açık</strong>
+                <span>İş birliği / freelance / danışmanlık</span>
+              </div>
+            </div>
+
+            <div class="item" style="cursor:default">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong class="mono">develonur.com</strong>
+                <span>Minimal, modern, tek sayfa profil</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer">
+        <span>© <span id="y"></span> Develonur Şahin</span>
+        <span class="mono">Flutter • AI • IoT</span>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
