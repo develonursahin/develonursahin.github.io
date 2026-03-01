@@ -246,11 +246,38 @@
       gap: 10px;
     }
 
-    /* Company blocks */
-    .companies{
-      display:grid;
+    /* Simple role cards */
+    .rolecard{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+      border-radius: 14px;
+      padding: 12px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .rolecard:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(0,0,0,.22);
+    }
+    .row{
+      display:flex;
+      align-items:flex-start;
       gap: 12px;
     }
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 6px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(252,191,34,.12);
+      flex: 0 0 auto;
+    }
+    .titleLine{ margin:0; font-weight: 800; font-size: .98rem; line-height: 1.35; }
+    .metaLine{ margin: 4px 0 0; color: var(--muted); font-size: .87rem; line-height: 1.45; }
+
+    /* Company blocks */
+    .companies{ display:grid; gap: 12px; }
     .company{
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.14);
@@ -269,13 +296,9 @@
     .companyName{
       margin:0;
       font-size: .98rem;
-      font-weight: 800;
+      font-weight: 850;
       letter-spacing: -0.01em;
       line-height: 1.25;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
     }
     .companyLink{
       font-size: .84rem;
@@ -292,16 +315,12 @@
       border-color: rgba(255,255,255,.18);
       transform: translateY(-1px);
     }
-
-    .companyItems{
-      display:grid;
-      gap: 10px;
-    }
+    .companyItems{ display:grid; gap: 10px; }
 
     /* Project card */
     .proj{
       border: 1px solid rgba(255,255,255,.10);
-      background: var(--cardbg);
+      background: rgba(0,0,0,.16);
       border-radius: 14px;
       padding: 12px;
       transition: transform .12s ease, border-color .12s ease, background .12s ease;
@@ -309,36 +328,11 @@
     .proj:hover{
       transform: translateY(-1px);
       border-color: rgba(255,255,255,.18);
-      background: var(--cardbg2);
+      background: rgba(0,0,0,.22);
     }
-    .projTop{
-      display:flex;
-      gap: 12px;
-      align-items:flex-start;
-    }
-    .dot{
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-top: 6px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 4px rgba(252,191,34,.12);
-      flex: 0 0 auto;
-    }
-    .projTitle{
-      margin:0;
-      font-weight: 780;
-      font-size: .98rem;
-      line-height: 1.35;
-    }
-    .projMeta{
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: .87rem;
-      line-height: 1.45;
-    }
+    .projTitle{ margin:0; font-weight: 820; font-size: .98rem; line-height: 1.35; }
+    .projMeta{ margin: 4px 0 0; color: var(--muted); font-size: .87rem; line-height: 1.45; }
 
-    /* Platform icon links */
     .platforms{
       margin-top: 10px;
       display:flex;
@@ -356,7 +350,7 @@
       background: rgba(255,255,255,.05);
       color: rgba(255,255,255,.86);
       font-size: .82rem;
-      font-weight: 700;
+      font-weight: 800;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
       white-space:nowrap;
     }
@@ -366,6 +360,16 @@
       border-color: rgba(255,255,255,.20);
     }
     .pico{ width: 16px; height: 16px; display:inline-block; }
+
+    .tags{ margin-top: 10px; display:flex; flex-wrap:wrap; gap: 8px; }
+    .tag{
+      font-size: .78rem;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.84);
+    }
 
     .footer{
       display:flex;
@@ -380,6 +384,9 @@
       font-size: .86rem;
     }
 
+    @media (min-width: 920px){
+      .cards.two{ grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 560px){
       .heroTop{ flex-wrap:wrap; }
       .name{ font-size: 1.35rem; }
@@ -448,22 +455,81 @@
         </div>
       </section>
 
-      <!-- PROJECTS -->
+      <!-- EXPERIENCE (kept) -->
       <section class="section">
         <div class="sectionHead">
-          <h2>Apps</h2>
-          <div class="hint">iOS • Android • Web</div>
+          <h2>Professional Experience</h2>
+          <div class="hint">2023 → present</div>
+        </div>
+
+        <div class="cards two">
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Information Systems Engineer — Metro Istanbul</p>
+              <p class="metaLine">12.2024 – Present • Istanbul</p>
+            </div></div>
+            <div class="tags">
+              <span class="tag">Enterprise</span><span class="tag">Flutter</span><span class="tag">Dashboards</span><span class="tag">Integrations</span>
+            </div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Flutter Developer — Resibu</p>
+              <p class="metaLine">06.2024 – 06.2025 • Remote</p>
+            </div></div>
+            <div class="tags">
+              <span class="tag">MVVM</span><span class="tag">Riverpod</span><span class="tag">Firebase</span><span class="tag">IAP</span>
+            </div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Flutter Developer — Wookweb</p>
+              <p class="metaLine">01.2024 – 06.2024 • Istanbul</p>
+            </div></div>
+            <div class="tags">
+              <span class="tag">Production</span><span class="tag">Publishing</span><span class="tag">Flutter</span>
+            </div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Flutter Developer Intern — Hero Games</p>
+              <p class="metaLine">10.2023 – 12.2023 • Remote</p>
+            </div></div>
+            <div class="tags">
+              <span class="tag">AI Apps</span><span class="tag">GetX</span><span class="tag">APIs</span>
+            </div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Flutter Developer Intern — Neon Apps</p>
+              <p class="metaLine">06.2023 – 10.2023 • Istanbul</p>
+            </div></div>
+            <div class="tags">
+              <span class="tag">MobX</span><span class="tag">App Dev</span><span class="tag">Testing</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS (kept + platform icons per project) -->
+      <section class="section">
+        <div class="sectionHead">
+          <h2>Projects</h2>
+          <div class="hint">company grouped</div>
         </div>
 
         <div class="cards">
-          <!-- App list - clean, minimal -->
           <div class="companies">
 
-            <!-- SPEEDREAD -->
+            <!-- METRO -->
             <div class="company">
               <div class="companyHead">
-                <p class="companyName">SpeedRead</p>
-                <span class="companyLink" style="cursor:default; opacity:.9;">Personal Project</span>
+                <p class="companyName">Metro Istanbul</p>
+                <a class="companyLink" href="https://www.metro.istanbul/" target="_blank" rel="noopener">metro.istanbul</a>
               </div>
 
               <div class="companyItems">
@@ -471,72 +537,40 @@
                   <div class="projTop">
                     <div class="dot"></div>
                     <div>
-                      <p class="projTitle">SpeedRead — Speed Reading App</p>
-                      <p class="projMeta">RSVP speed reading • PDF/Word • OCR scan • AI text generation</p>
-
-                      <div class="platforms">
-                        <a class="pbtn" href="https://apps.apple.com/us/app/speedread/id6747796981" target="_blank" rel="noopener" aria-label="SpeedRead iOS">
-                          <!-- Apple -->
-                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M16.3 13.4c0 2.3 2 3.1 2 3.1s-1.5 4.2-3.6 4.2c-1.1 0-1.6-.7-2.8-.7-1.2 0-1.8.7-2.9.7-2 0-3.7-3.9-3.7-7.5 0-3.1 1.9-4.7 3.7-4.7 1.1 0 2 .8 2.8.8.8 0 2-.9 3.4-.9.5 0 2 .1 3 1.5-2.6 1.4-1.9 3.5-1.9 3.5z" fill="currentColor"/>
-                            <path d="M14.9 3.2c.8-1 1.3-2.2 1.1-3.2-1.2.1-2.5.8-3.3 1.8-.8.9-1.4 2.2-1.2 3.1 1.3.1 2.6-.7 3.4-1.7z" fill="currentColor"/>
-                          </svg>
-                          iOS
-                        </a>
-
-                        <a class="pbtn" href="https://play.google.com/store/apps/details?id=com.lightsup.speedread.app" target="_blank" rel="noopener" aria-label="SpeedRead Android">
-                          <!-- Android -->
-                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M7 9h10v10a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8"/>
-                            <path d="M9 5l-1-2M15 5l1-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                            <path d="M7 9a5 5 0 0110 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                            <path d="M10 13h0M14 13h0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                          </svg>
-                          Android
-                        </a>
-                      </div>
+                      <p class="projTitle">METUS</p>
+                      <p class="projMeta">Equipment tracking & alert notifications • real-time data</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- SAZ SÖZ -->
-            <div class="company">
-              <div class="companyHead">
-                <p class="companyName">Saz Söz</p>
-                <a class="companyLink" href="https://sazsoz.app" target="_blank" rel="noopener">sazsoz.app</a>
-              </div>
-
-              <div class="companyItems">
                 <div class="proj">
                   <div class="projTop">
                     <div class="dot"></div>
                     <div>
-                      <p class="projTitle">Saz Söz — Folk Lyrics & Tuner</p>
-                      <p class="projMeta">Offline • fast search • favorites • optimized UI • Firebase + Supabase</p>
+                      <p class="projTitle">PDKS Mobile & Tablet Apps</p>
+                      <p class="projMeta">SignalR • MVVM • fake GPS detection • face recognition</p>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Metro App Store</p>
+                      <p class="projMeta">Internal app management • version tracking • update/download</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Metro Digital Card</p>
+                      <p class="projMeta">NFC & QR verification • Web + Mobile</p>
                       <div class="platforms">
-                        <a class="pbtn" href="https://apps.apple.com/us/app/sazs%C3%B6z-folk-lyrics-tuner/id6749183516" target="_blank" rel="noopener" aria-label="Saz Söz iOS">
-                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M16.3 13.4c0 2.3 2 3.1 2 3.1s-1.5 4.2-3.6 4.2c-1.1 0-1.6-.7-2.8-.7-1.2 0-1.8.7-2.9.7-2 0-3.7-3.9-3.7-7.5 0-3.1 1.9-4.7 3.7-4.7 1.1 0 2 .8 2.8.8.8 0 2-.9 3.4-.9.5 0 2 .1 3 1.5-2.6 1.4-1.9 3.5-1.9 3.5z" fill="currentColor"/>
-                            <path d="M14.9 3.2c.8-1 1.3-2.2 1.1-3.2-1.2.1-2.5.8-3.3 1.8-.8.9-1.4 2.2-1.2 3.1 1.3.1 2.6-.7 3.4-1.7z" fill="currentColor"/>
-                          </svg>
-                          iOS
-                        </a>
-
-                        <a class="pbtn" href="https://play.google.com/store/apps/details?id=com.develonur.sazsoz" target="_blank" rel="noopener" aria-label="Saz Söz Android">
-                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M7 9h10v10a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8"/>
-                            <path d="M9 5l-1-2M15 5l1-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                            <path d="M7 9a5 5 0 0110 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                            <path d="M10 13h0M14 13h0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                          </svg>
-                          Android
-                        </a>
-
-                        <a class="pbtn" href="https://sazsoz.app" target="_blank" rel="noopener" aria-label="Saz Söz Web">
-                          <!-- Globe -->
+                        <a class="pbtn" href="https://dijitalkart.metro.istanbul/" target="_blank" rel="noopener" aria-label="Metro Digital Card Web">
                           <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M12 21a9 9 0 100-18 9 9 0 000 18z" stroke="currentColor" stroke-width="1.8"/>
                             <path d="M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -548,43 +582,13 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- YOUDICA -->
-            <div class="company">
-              <div class="companyHead">
-                <p class="companyName">Youdica</p>
-                <a class="companyLink" href="https://youdica.com/you/develonur" target="_blank" rel="noopener">profile</a>
-              </div>
-
-              <div class="companyItems">
                 <div class="proj">
                   <div class="projTop">
                     <div class="dot"></div>
                     <div>
-                      <p class="projTitle">Youdica — Digital Business Card</p>
-                      <p class="projMeta">NFC • MVVM • Riverpod • Firebase • REST • Deeplink</p>
-
-                      <div class="platforms">
-                        <a class="pbtn" href="https://apps.apple.com/us/app/youdica/id6738731644" target="_blank" rel="noopener" aria-label="Youdica iOS">
-                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M16.3 13.4c0 2.3 2 3.1 2 3.1s-1.5 4.2-3.6 4.2c-1.1 0-1.6-.7-2.8-.7-1.2 0-1.8.7-2.9.7-2 0-3.7-3.9-3.7-7.5 0-3.1 1.9-4.7 3.7-4.7 1.1 0 2 .8 2.8.8.8 0 2-.9 3.4-.9.5 0 2 .1 3 1.5-2.6 1.4-1.9 3.5-1.9 3.5z" fill="currentColor"/>
-                            <path d="M14.9 3.2c.8-1 1.3-2.2 1.1-3.2-1.2.1-2.5.8-3.3 1.8-.8.9-1.4 2.2-1.2 3.1 1.3.1 2.6-.7 3.4-1.7z" fill="currentColor"/>
-                          </svg>
-                          iOS
-                        </a>
-
-                        <a class="pbtn" href="https://play.google.com/store/apps/details?id=com.netbioca.inoica.app" target="_blank" rel="noopener" aria-label="Youdica Android">
-                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M7 9h10v10a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8"/>
-                            <path d="M9 5l-1-2M15 5l1-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                            <path d="M7 9a5 5 0 0110 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                            <path d="M10 13h0M14 13h0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                          </svg>
-                          Android
-                        </a>
-                      </div>
+                      <p class="projTitle">SAP Fiori WebView App & PDKS Monitoring Dashboard</p>
+                      <p class="projMeta">SAP Fiori integration • mobile WebView • web monitoring dashboard</p>
                     </div>
                   </div>
                 </div>
@@ -603,9 +607,8 @@
                   <div class="projTop">
                     <div class="dot"></div>
                     <div>
-                      <p class="projTitle">Resibu — Career & Network Platform (Construction)</p>
-                      <p class="projMeta">MVVM • Riverpod • Firebase • In-App Purchase • production release</p>
-
+                      <p class="projTitle">Resibu</p>
+                      <p class="projMeta">Career & network platform (construction) • MVVM • Riverpod • Firebase • IAP</p>
                       <div class="platforms">
                         <a class="pbtn" href="https://apps.apple.com/tr/app/resibu-i-n%C5%9Faat-i-%C5%9F-kariyer/id6480116190?l=tr" target="_blank" rel="noopener" aria-label="Resibu iOS">
                           <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -635,14 +638,296 @@
                     <div>
                       <p class="projTitle">KiralamaTalebi</p>
                       <p class="projMeta">Resibu ecosystem app • end-to-end Flutter development</p>
+                      <div class="tags">
+                        <span class="tag">Private / Internal</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WOOKWEB -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Wookweb</p>
+                <a class="companyLink" href="https://www.wookweb.com/" target="_blank" rel="noopener">wookweb.com</a>
+              </div>
+
+              <div class="companyItems">
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Dökümhane</p>
+                      <p class="projMeta">Gold order tracking • Flutter/Dart • production release</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Heva Clinic</p>
+                      <p class="projMeta">Hair clinic patient guide • Flutter/Dart • production release</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NETBIOCA (Youdica app) -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Netbioca</p>
+                <span class="companyLink" style="cursor:default; opacity:.9;">project</span>
+              </div>
+
+              <div class="companyItems">
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Youdica</p>
+                      <p class="projMeta">Digital business card with NFC • MVVM • Riverpod • Firebase • Deeplink</p>
                       <div class="platforms">
-                        <span class="pbtn" style="cursor:default; opacity:.85;">
+                        <a class="pbtn" href="https://apps.apple.com/us/app/youdica/id6738731644" target="_blank" rel="noopener" aria-label="Youdica iOS">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M16.3 13.4c0 2.3 2 3.1 2 3.1s-1.5 4.2-3.6 4.2c-1.1 0-1.6-.7-2.8-.7-1.2 0-1.8.7-2.9.7-2 0-3.7-3.9-3.7-7.5 0-3.1 1.9-4.7 3.7-4.7 1.1 0 2 .8 2.8.8.8 0 2-.9 3.4-.9.5 0 2 .1 3 1.5-2.6 1.4-1.9 3.5-1.9 3.5z" fill="currentColor"/>
+                            <path d="M14.9 3.2c.8-1 1.3-2.2 1.1-3.2-1.2.1-2.5.8-3.3 1.8-.8.9-1.4 2.2-1.2 3.1 1.3.1 2.6-.7 3.4-1.7z" fill="currentColor"/>
+                          </svg>
+                          iOS
+                        </a>
+
+                        <a class="pbtn" href="https://play.google.com/store/apps/details?id=com.netbioca.inoica.app" target="_blank" rel="noopener" aria-label="Youdica Android">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M7 9h10v10a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M9 5l-1-2M15 5l1-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M7 9a5 5 0 0110 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M10 13h0M14 13h0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                          </svg>
+                          Android
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- AOD STUDIO -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">AOD Studio</p>
+                <span class="companyLink" style="cursor:default; opacity:.9;">AI / creative</span>
+              </div>
+
+              <div class="companyItems">
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Dream AI</p>
+                      <p class="projMeta">BLoC • Adapty subscriptions • FAL AI image generation</p>
+                      <div class="tags">
+                        <a class="tag" href="https://www.figma.com/deck/3NPExzamisTXgj0Y7oj65S/AI-Dream-to-Video---English?node-id=1-453&t=mCLYVtPnZIn5HDEG-1" target="_blank" rel="noopener">Figma Deck</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HERO GAMES -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Hero Games</p>
+                <a class="companyLink" href="https://www.herogamestudio.com/" target="_blank" rel="noopener">herogamestudio.com</a>
+              </div>
+
+              <div class="companyItems">
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Avatar</p>
+                      <p class="projMeta">Photo editing • frames • background edits • export</p>
+                      <div class="platforms">
+                        <a class="pbtn" href="https://play.google.com/store/apps/details?id=com.reeder.avatar&hl=tr&gl=US" target="_blank" rel="noopener" aria-label="Avatar Android">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M7 9h10v10a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M9 5l-1-2M15 5l1-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M7 9a5 5 0 0110 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M10 13h0M14 13h0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                          </svg>
+                          Android
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">FaceMe • No Shame</p>
+                      <p class="projMeta">AI-powered apps • Flutter/Dart • GetX • API integrations</p>
+                      <div class="tags">
+                        <span class="tag">Internal</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NEON APPS -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Neon Apps</p>
+                <a class="companyLink" href="https://neonapps.co/" target="_blank" rel="noopener">neonapps.co</a>
+              </div>
+
+              <div class="companyItems">
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Blushy</p>
+                      <p class="projMeta">Influencer analysis • recommendations • API integration • MobX</p>
+                      <div class="platforms">
+                        <a class="pbtn" href="https://apps.apple.com/tr/app/blushy-app/id6470207871?l=tr" target="_blank" rel="noopener" aria-label="Blushy iOS">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M16.3 13.4c0 2.3 2 3.1 2 3.1s-1.5 4.2-3.6 4.2c-1.1 0-1.6-.7-2.8-.7-1.2 0-1.8.7-2.9.7-2 0-3.7-3.9-3.7-7.5 0-3.1 1.9-4.7 3.7-4.7 1.1 0 2 .8 2.8.8.8 0 2-.9 3.4-.9.5 0 2 .1 3 1.5-2.6 1.4-1.9 3.5-1.9 3.5z" fill="currentColor"/>
+                            <path d="M14.9 3.2c.8-1 1.3-2.2 1.1-3.2-1.2.1-2.5.8-3.3 1.8-.8.9-1.4 2.2-1.2 3.1 1.3.1 2.6-.7 3.4-1.7z" fill="currentColor"/>
+                          </svg>
+                          iOS
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Chat GPT App (Internship)</p>
+                      <p class="projMeta">Chatbot app • Flutter/Dart • feature delivery</p>
+                      <div class="tags">
+                        <span class="tag">Internal</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PERSONAL (kept) -->
+            <div class="company">
+              <div class="companyHead">
+                <p class="companyName">Personal Projects</p>
+                <span class="companyLink" style="cursor:default; opacity:.9;">apps & OSS</span>
+              </div>
+
+              <div class="companyItems">
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Saz Söz</p>
+                      <p class="projMeta">Folk lyrics archive • offline • fast search • favorites</p>
+                      <div class="platforms">
+                        <a class="pbtn" href="https://apps.apple.com/us/app/sazs%C3%B6z-folk-lyrics-tuner/id6749183516" target="_blank" rel="noopener" aria-label="Saz Söz iOS">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M16.3 13.4c0 2.3 2 3.1 2 3.1s-1.5 4.2-3.6 4.2c-1.1 0-1.6-.7-2.8-.7-1.2 0-1.8.7-2.9.7-2 0-3.7-3.9-3.7-7.5 0-3.1 1.9-4.7 3.7-4.7 1.1 0 2 .8 2.8.8.8 0 2-.9 3.4-.9.5 0 2 .1 3 1.5-2.6 1.4-1.9 3.5-1.9 3.5z" fill="currentColor"/>
+                            <path d="M14.9 3.2c.8-1 1.3-2.2 1.1-3.2-1.2.1-2.5.8-3.3 1.8-.8.9-1.4 2.2-1.2 3.1 1.3.1 2.6-.7 3.4-1.7z" fill="currentColor"/>
+                          </svg>
+                          iOS
+                        </a>
+                        <a class="pbtn" href="https://play.google.com/store/apps/details?id=com.develonur.sazsoz" target="_blank" rel="noopener" aria-label="Saz Söz Android">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M7 9h10v10a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M9 5l-1-2M15 5l1-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M7 9a5 5 0 0110 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M10 13h0M14 13h0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                          </svg>
+                          Android
+                        </a>
+                        <a class="pbtn" href="https://sazsoz.app" target="_blank" rel="noopener" aria-label="Saz Söz Web">
                           <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M12 21a9 9 0 100-18 9 9 0 000 18z" stroke="currentColor" stroke-width="1.8"/>
                             <path d="M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M12 3c2.5 2.7 2.5 15.3 0 18-2.5-2.7-2.5-15.3 0-18z" stroke="currentColor" stroke-width="1.8"/>
                           </svg>
-                          Private / Internal
-                        </span>
+                          Web
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">SpeedRead</p>
+                      <p class="projMeta">RSVP speed reading • OCR scan • AI text generation</p>
+                      <div class="platforms">
+                        <a class="pbtn" href="https://apps.apple.com/us/app/speedread/id6747796981" target="_blank" rel="noopener" aria-label="SpeedRead iOS">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M16.3 13.4c0 2.3 2 3.1 2 3.1s-1.5 4.2-3.6 4.2c-1.1 0-1.6-.7-2.8-.7-1.2 0-1.8.7-2.9.7-2 0-3.7-3.9-3.7-7.5 0-3.1 1.9-4.7 3.7-4.7 1.1 0 2 .8 2.8.8.8 0 2-.9 3.4-.9.5 0 2 .1 3 1.5-2.6 1.4-1.9 3.5-1.9 3.5z" fill="currentColor"/>
+                            <path d="M14.9 3.2c.8-1 1.3-2.2 1.1-3.2-1.2.1-2.5.8-3.3 1.8-.8.9-1.4 2.2-1.2 3.1 1.3.1 2.6-.7 3.4-1.7z" fill="currentColor"/>
+                          </svg>
+                          iOS
+                        </a>
+                        <a class="pbtn" href="https://play.google.com/store/apps/details?id=com.lightsup.speedread.app" target="_blank" rel="noopener" aria-label="SpeedRead Android">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M7 9h10v10a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M9 5l-1-2M15 5l1-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M7 9a5 5 0 0110 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M10 13h0M14 13h0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                          </svg>
+                          Android
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Flutter Stable Diffusion App</p>
+                      <p class="projMeta">Local Stable Diffusion server • BLoC • Dio</p>
+                      <div class="platforms">
+                        <a class="pbtn" href="https://github.com/develonursahin/flutter_stable_diffusion" target="_blank" rel="noopener" aria-label="Stable Diffusion Repo">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.2-3.37-1.2-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.9.83.09-.65.35-1.08.63-1.33-2.22-.26-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0112 6.8c.85 0 1.71.12 2.51.35 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.69-4.57 4.95.36.31.68.92.68 1.86v2.75c0 .26.18.57.69.48A10 10 0 0012 2z" fill="currentColor"/>
+                          </svg>
+                          GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="proj">
+                  <div class="projTop">
+                    <div class="dot"></div>
+                    <div>
+                      <p class="projTitle">Chat GPT App</p>
+                      <p class="projMeta">ChatGPT API • Provider • premium flow</p>
+                      <div class="platforms">
+                        <a class="pbtn" href="https://github.com/develonursahin/chat_gpt" target="_blank" rel="noopener" aria-label="Chat GPT Repo">
+                          <svg class="pico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.2-3.37-1.2-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.9.83.09-.65.35-1.08.63-1.33-2.22-.26-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0112 6.8c.85 0 1.71.12 2.51.35 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.69-4.57 4.95.36.31.68.92.68 1.86v2.75c0 .26.18.57.69.48A10 10 0 0012 2z" fill="currentColor"/>
+                          </svg>
+                          GitHub
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -651,6 +936,92 @@
               </div>
             </div>
 
+            <!-- SKILLS, EDUCATION, REFERENCES were removed previously; re-adding minimal versions -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section">
+        <div class="sectionHead">
+          <h2>Skills</h2>
+          <div class="hint">toolbox</div>
+        </div>
+        <div class="cards">
+          <div class="rolecard">
+            <div class="tags">
+              <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">BLoC</span><span class="tag">Riverpod</span>
+              <span class="tag">MVVM</span><span class="tag">Firebase</span><span class="tag">Supabase</span>
+              <span class="tag">REST</span><span class="tag">SignalR</span><span class="tag">Fastlane</span><span class="tag">Docker</span>
+              <span class="tag">Stable Diffusion</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section">
+        <div class="sectionHead">
+          <h2>Education</h2>
+          <div class="hint">Beykent University</div>
+        </div>
+        <div class="cards">
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Computer Engineering — Beykent University</p>
+              <p class="metaLine">2018 – 2023 • Bachelor Degree • <a class="mono" href="https://www.beykent.edu.tr/en" target="_blank" rel="noopener">beykent.edu.tr</a></p>
+            </div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REFERENCES (minimal, with given LinkedIns) -->
+      <section class="section">
+        <div class="sectionHead">
+          <h2>References</h2>
+          <div class="hint">available on request</div>
+        </div>
+        <div class="cards two">
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Mehmet Sefa Barlak</p>
+              <p class="metaLine">Software and Database Unit Manager — Metro Istanbul</p>
+            </div></div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Kenan Kurt</p>
+              <p class="metaLine">Flutter & Backend Developer — Hero Games • <a class="mono" href="https://www.linkedin.com/in/kenankurt" target="_blank" rel="noopener">LinkedIn</a></p>
+            </div></div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Mehmet Nuri Fırat</p>
+              <p class="metaLine">Flutter Developer — Neon Apps • <a class="mono" href="https://www.linkedin.com/in/mehmetnf/" target="_blank" rel="noopener">LinkedIn</a></p>
+            </div></div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Hasan Can Güneş</p>
+              <p class="metaLine">Project Manager — Wookweb • <a class="mono" href="https://www.linkedin.com/in/hasancangunes" target="_blank" rel="noopener">LinkedIn</a></p>
+            </div></div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Doğukan Özgür Yılmaz</p>
+              <p class="metaLine">Flutter Developer, Team Lead — Neon Apps</p>
+            </div></div>
+          </div>
+
+          <div class="rolecard">
+            <div class="row"><div class="dot"></div><div>
+              <p class="titleLine">Çağatay Ayyıldız</p>
+              <p class="metaLine">Fullstack Developer — Resibu, Netbioca</p>
+            </div></div>
           </div>
         </div>
       </section>
